@@ -94,3 +94,27 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
 window.onload = function() {
     initChart();
 };
+
+function toggleChat() {
+  const box = document.getElementById("chatbox")
+  box.style.display = box.style.display === "none" ? "block" : "none"
+}
+
+async function send() {
+  const input = document.getElementById("input")
+  const msg = input.value
+
+  document.getElementById("messages").innerHTML += "<p><b>Bạn:</b> " + msg + "</p>"
+
+  const res = await fetch("https://your-backend.onrender.com/chat", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({message: msg})
+  })
+
+  const data = await res.json()
+
+  document.getElementById("messages").innerHTML += "<p><b>AI:</b> " + data.reply + "</p>"
+
+  input.value = ""
+}
