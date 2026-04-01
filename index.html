@@ -4,58 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GOLFZON VINA - Global No.1 Golf Simulator</title>
+    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for Investment Analytics -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Chosen Palette: Navy Professional (#002D58), Gold Accent (#C5A059), Slate Background (#F8FAFC) -->
-    <!-- Application Structure Plan: 
-         - Responsive Navigation: Logo và nút chuyển ngôn ngữ tự cân đối trên mọi màn hình.
-         - Fluid Hero: Tiêu đề tự động xuống dòng và co giãn kích thước chữ (responsive typography).
-         - Adaptive Charts: Biểu đồ Chart.js được bọc trong container có tỉ lệ linh hoạt.
-         - Stackable Grid: Bố cục 3 cột trên desktop chuyển thành 1 cột trên mobile để dễ đọc.
-         - Touch-Friendly Form: Các trường nhập liệu và nút bấm đủ lớn cho thao tác chạm.
-    -->
-    <!-- Visualization & Content Choices: 
-         - Chart.js: Bar chart so sánh giá niêm yết vs giá chiết khấu.
-         - CSS Grids/Flex: Sử dụng các lớp 'md:', 'lg:' của Tailwind để điều khiển hành vi theo breakpoint.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-
-    <style>
-        :root {
-            --navy: #002D58;
-            --gold: #C5A059;
-        }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #F8FAFC;
-        }
-        /* Strict Chart Container for Responsiveness */
-        .chart-wrapper {
-            position: relative;
-            width: 100%;
-            height: 300px; /* Default mobile height */
-        }
-        @media (min-width: 768px) {
-            .chart-wrapper {
-                height: 400px; /* Desktop height */
-            }
-        }
-        .logo-box {
-            background-color: var(--navy);
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-            color: white;
-            font-style: italic;
-            font-weight: 900;
-        }
-    </style>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="text-slate-800">
 
-    <!-- Header -->
+    <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 h-16 md:h-20 flex justify-between items-center">
             <div class="flex items-center gap-2">
@@ -70,209 +30,96 @@
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="bg-[#002D58] text-white py-16 md:py-28 relative overflow-hidden">
-        <!-- Background Accent -->
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-[#C5A059] opacity-5 -skew-x-12 translate-x-1/4"></div>
-        
+    <!-- Hero Section -->
+    <section class="bg-navy text-white py-16 md:py-28 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gold opacity-5 -skew-x-12 translate-x-1/4"></div>
         <div class="max-w-7xl mx-auto px-4 relative z-10 text-center lg:text-left">
-            <p class="text-[#C5A059] font-bold tracking-widest text-xs md:text-sm mb-4 uppercase" data-vi="Thương Hiệu Số 1 Thế Giới" data-en="Global No.1 Brand">THƯƠNG HIỆU SỐ 1 THẾ GIỚI</p>
+            <p class="text-gold font-bold tracking-widest text-xs md:text-sm mb-4 uppercase" data-vi="Thương Hiệu Số 1 Thế Giới" data-en="Global No.1 Brand">THƯƠNG HIỆU SỐ 1 THẾ GIỚI</p>
             <h1 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
                 <span data-vi="Công Nghệ GOLFZON VISION" data-en="GOLFZON VISION Technology">Công Nghệ GOLFZON VISION</span><br>
-                <span class="text-[#C5A059]" data-vi="Ưu Đãi Đặc Biệt 55%" data-en="Special 55% Discount">ƯU ĐÃI ĐẶC BIỆT 55%</span>
+                <span class="text-gold" data-vi="Ưu Đãi Đặc Biệt 55%" data-en="Special 55% Discount">ƯU ĐÃI ĐẶC BIỆT 55%</span>
             </h1>
             <p class="text-slate-300 text-sm md:text-lg max-w-2xl mb-8 mx-auto lg:mx-0" data-vi="Sản phẩm Refurbished chính hãng từ GOLFZON VINA. Giải pháp đầu tư tối ưu với chi phí hợp lý nhất." data-en="Authentic Refurbished products from GOLFZON VINA. Optimal investment solution with the best costs.">
                 Sản phẩm Refurbished chính hãng từ GOLFZON VINA. Giải pháp đầu tư tối ưu với chi phí hợp lý nhất.
             </p>
             <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                <a href="#quote" class="bg-[#C5A059] hover:bg-[#b08d4a] text-white px-8 py-3 rounded-full font-bold text-sm transition-transform active:scale-95 shadow-lg" data-vi="Xem Báo Giá" data-en="View Quote">Xem Báo Giá</a>
+                <a href="#quote" class="bg-gold hover:bg-[#b08d4a] text-white px-8 py-3 rounded-full font-bold text-sm transition-transform active:scale-95 shadow-lg" data-vi="Xem Báo Giá" data-en="View Quote">Xem Báo Giá</a>
                 <a href="#contact" class="bg-white/10 border border-white/20 hover:bg-white/20 text-white px-8 py-3 rounded-full font-bold text-sm" data-vi="Đăng Ký Tư Vấn" data-en="Get Consultation">Đăng Ký Tư Vấn</a>
             </div>
         </div>
     </section>
 
-    <!-- Value Prop - Responsive Grid -->
+    <!-- Content Sections (Minified for brevity, following previous structure) -->
     <section class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-6 border border-slate-100 rounded-2xl bg-slate-50 hover:shadow-md transition-shadow">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div class="p-6 border border-slate-100 rounded-2xl bg-slate-50">
                     <div class="text-3xl mb-4">🏆</div>
-                    <h3 class="font-bold text-[#002D58] mb-2" data-vi="Chất Lượng Toàn Cầu" data-en="Global Quality">Chất Lượng Toàn Cầu</h3>
-                    <p class="text-xs md:text-sm text-slate-500" data-vi="Hệ thống Vision Premium được kiểm định nghiêm ngặt theo tiêu chuẩn của Golfzon Hàn Quốc." data-en="Vision Premium systems are rigorously tested according to Golfzon Korea standards.">Hệ thống Vision Premium được kiểm định nghiêm ngặt theo tiêu chuẩn của Golfzon Hàn Quốc.</p>
+                    <h3 class="font-bold text-navy mb-2" data-vi="Chất Lượng Toàn Cầu" data-en="Global Quality">Chất Lượng Toàn Cầu</h3>
+                    <p class="text-xs md:text-sm text-slate-500" data-vi="Kiểm định theo tiêu chuẩn Golfzon Hàn Quốc." data-en="Tested to Golfzon Korea standards.">Kiểm định theo tiêu chuẩn Golfzon Hàn Quốc.</p>
                 </div>
-                <div class="p-6 border border-slate-100 rounded-2xl bg-slate-50 hover:shadow-md transition-shadow">
+                <div class="p-6 border border-slate-100 rounded-2xl bg-slate-50">
                     <div class="text-3xl mb-4">⚙️</div>
-                    <h3 class="font-bold text-[#002D58] mb-2" data-vi="Công Nghệ T1VS" data-en="T1VS Technology">Công Nghệ T1VS</h3>
-                    <p class="text-xs md:text-sm text-slate-500" data-vi="Bàn nâng Swing Plate chuyển động đa chiều, mô phỏng địa hình sân golf thực tế sinh động." data-en="Multi-directional Swing Plate moves to simulate real golf course terrain vividly.">Bàn nâng Swing Plate chuyển động đa chiều, mô phỏng địa hình sân golf thực tế sinh động.</p>
+                    <h3 class="font-bold text-navy mb-2" data-vi="Công Nghệ T1VS" data-en="T1VS Technology">Công Nghệ T1VS</h3>
+                    <p class="text-xs md:text-sm text-slate-500" data-vi="Mô phỏng địa hình sân thực tế." data-en="Simulate real course terrain.">Mô phỏng địa hình sân thực tế.</p>
                 </div>
-                <div class="p-6 border border-slate-100 rounded-2xl bg-slate-50 hover:shadow-md transition-shadow">
+                <div class="p-6 border border-slate-100 rounded-2xl bg-slate-50">
                     <div class="text-3xl mb-4">💰</div>
-                    <h3 class="font-bold text-[#002D58] mb-2" data-vi="Tối Ưu Tài Chính" data-en="Financial Optimization">Tối Ưu Tài Chính</h3>
-                    <p class="text-xs md:text-sm text-slate-500" data-vi="Chiết khấu 55% giúp nhà đầu tư rút ngắn thời gian hoàn vốn (ROI) tối đa." data-en="A 55% discount helps investors maximize payback period (ROI) efficiency.">Chiết khấu 55% giúp nhà đầu tư rút ngắn thời gian hoàn vốn (ROI) tối đa.</p>
+                    <h3 class="font-bold text-navy mb-2" data-vi="Tối Ưu ROI" data-en="ROI Optimization">Tối Ưu ROI</h3>
+                    <p class="text-xs md:text-sm text-slate-500" data-vi="Rút ngắn thời gian hoàn vốn." data-en="Shorten payback period.">Rút ngắn thời gian hoàn vốn.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Chart & Data -->
-    <section id="quote" class="py-16 bg-slate-50 border-y border-slate-200">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-                <!-- Textual Data -->
-                <div class="lg:w-1/2 w-full">
-                    <h2 class="text-2xl md:text-3xl font-black text-[#002D58] mb-6" data-vi="Báo Giá Hệ Thống Refurbished" data-en="Refurbished System Quote">Báo Giá Hệ Thống Refurbished</h2>
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                        <div class="flex justify-between mb-4 pb-4 border-b border-slate-100">
-                            <span class="text-sm font-bold text-slate-500" data-vi="Giá Niêm Yết" data-en="Standard Price">Giá Niêm Yết</span>
-                            <span class="text-sm font-bold line-through">1,280,000,000 VND</span>
-                        </div>
-                        <div class="flex justify-between mb-6">
-                            <span class="text-sm font-bold text-slate-500" data-vi="Giá Ưu Đãi (55% OFF)" data-en="Special Price (55% OFF)">Giá Ưu Đãi (55% OFF)</span>
-                            <span class="text-2xl font-black text-[#C5A059]">576,000,000 VND</span>
-                        </div>
-                        <div class="bg-slate-900 text-white p-4 rounded-xl">
-                            <p class="text-[10px] uppercase font-bold text-[#C5A059] mb-1" data-vi="Gói Đề Xuất (3 Máy)" data-en="Recommended Package (3 Units)">Gói Đề Xuất (3 Máy)</p>
-                            <p class="text-xl font-bold">1,728,000,000 VND</p>
-                        </div>
+    <!-- Investment Section -->
+    <section id="quote" class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2 w-full">
+                <h2 class="text-2xl md:text-3xl font-black text-navy mb-6" data-vi="Phân Tích Báo Giá" data-en="Quote Analysis">Phân Tích Báo Giá</h2>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="flex justify-between mb-4">
+                        <span class="text-sm font-bold text-slate-500" data-vi="Giá Niêm Yết" data-en="Standard Price">Giá Niêm Yết</span>
+                        <span class="text-sm font-bold line-through">1,280,000,000 VND</span>
+                    </div>
+                    <div class="flex justify-between mb-6">
+                        <span class="text-sm font-bold text-slate-500" data-vi="Giá Refurbished" data-en="Refurbished Price">Giá Refurbished</span>
+                        <span class="text-2xl font-black text-gold">576,000,000 VND</span>
                     </div>
                 </div>
-                <!-- Visual Data -->
-                <div class="lg:w-1/2 w-full bg-white p-4 md:p-8 rounded-3xl shadow-xl border border-slate-200">
-                    <div class="chart-wrapper">
-                        <canvas id="mainChart"></canvas>
-                    </div>
-                    <p class="text-center text-[10px] text-slate-400 mt-4 italic" data-vi="*Đơn giá tính trên 01 đơn vị thiết bị (Triệu VND)" data-en="*Unit price per device (Million VND)">*Đơn giá tính trên 01 đơn vị thiết bị (Triệu VND)</p>
+            </div>
+            <div class="lg:w-1/2 w-full bg-white p-6 rounded-3xl shadow-xl">
+                <div class="chart-wrapper">
+                    <canvas id="mainChart"></canvas>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Lead Generation Form -->
-    <section id="contact" class="py-16 md:py-24 bg-[#002D58]">
+    <!-- Form Section -->
+    <section id="contact" class="py-16 bg-navy">
         <div class="max-w-3xl mx-auto px-4">
-            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
-                <div class="text-center mb-10">
-                    <h2 class="text-2xl md:text-3xl font-black text-[#002D58]" data-vi="Yêu Cầu Tư Vấn Lắp Đặt" data-en="Installation Inquiry">Yêu Cầu Tư Vấn Lắp Đặt</h2>
-                    <p class="text-slate-500 text-xs md:text-sm mt-2" data-vi="Để lại thông tin, đội ngũ kỹ thuật sẽ khảo sát mặt bằng và báo giá trong 24h." data-en="Leave your info, our team will survey the site and quote within 24h.">Để lại thông tin, đội ngũ kỹ thuật sẽ khảo sát mặt bằng và báo giá trong 24h.</p>
-                </div>
-
-                <form id="leadForm" class="space-y-5">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div class="space-y-1">
-                            <label class="text-[10px] font-bold text-slate-400 uppercase" data-vi="Họ Tên" data-en="Full Name">Họ Tên</label>
-                            <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 outline-none focus:border-[#C5A059] transition-colors text-sm">
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-[10px] font-bold text-slate-400 uppercase" data-vi="Điện Thoại" data-en="Phone">Điện Thoại</label>
-                            <input type="tel" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 outline-none focus:border-[#C5A059] transition-colors text-sm">
-                        </div>
-                    </div>
-                    <div class="space-y-1">
-                        <label class="text-[10px] font-bold text-slate-400 uppercase" data-vi="Email / Zalo" data-en="Email / Zalo">Email / Zalo</label>
-                        <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 outline-none focus:border-[#C5A059] transition-colors text-sm">
-                    </div>
-                    <div class="space-y-1">
-                        <label class="text-[10px] font-bold text-slate-400 uppercase" data-vi="Địa Điểm Dự Kiến" data-en="Expected Location">Địa Điểm Dự Kiến</label>
-                        <textarea rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 outline-none focus:border-[#C5A059] transition-colors text-sm resize-none"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-[#002D58] hover:bg-black text-white font-bold py-4 rounded-xl text-xs md:text-sm uppercase tracking-widest shadow-lg active:scale-[0.98] transition-all" data-vi="Gửi Thông Tin Ngay" data-en="Submit Now">Gửi Thông Tin Ngay</button>
+            <div class="bg-white rounded-3xl p-8 shadow-2xl">
+                <h2 class="text-2xl font-black text-navy text-center mb-8" data-vi="Yêu Cầu Tư Vấn" data-en="Inquiry">Yêu Cầu Tư Vấn</h2>
+                <form id="leadForm" class="space-y-4">
+                    <input type="text" placeholder="Họ Tên / Name" required class="w-full bg-slate-50 border rounded-lg px-4 py-3 text-sm outline-none focus:border-gold">
+                    <input type="tel" placeholder="Số điện thoại / Phone" required class="w-full bg-slate-50 border rounded-lg px-4 py-3 text-sm outline-none focus:border-gold">
+                    <button type="submit" class="w-full bg-navy text-white font-bold py-4 rounded-xl text-sm uppercase tracking-widest" data-vi="Gửi Ngay" data-en="Submit Now">Gửi Ngay</button>
                 </form>
-
                 <div id="successMessage" class="hidden text-center py-10">
                     <div class="text-5xl mb-4">🏆</div>
-                    <h3 class="text-xl font-black text-[#002D58]" data-vi="Thành Công!" data-en="Success!">Thành Công!</h3>
-                    <p class="text-slate-500 text-sm mt-2" data-vi="Chúng tôi đã nhận được thông tin. Hẹn gặp lại bạn sớm nhất!" data-en="Inquiry received. We will contact you shortly!">Chúng tôi đã nhận được thông tin. Hẹn gặp lại bạn sớm nhất!</p>
+                    <h3 class="text-xl font-bold text-navy" data-vi="Cảm ơn bạn!" data-en="Thank you!">Cảm ơn bạn!</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-10 bg-white border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                <div class="logo-box text-sm">GOLFZON</div>
-                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Vina Co., Ltd</span>
-            </div>
-            <div class="text-[10px] text-slate-400 uppercase font-bold text-center md:text-right leading-relaxed">
-                B1, B2 floors Grand Plaza hotel, No.117 Tran Duy Hung street, Hanoi<br>
-                Tel: 0903-785-137 | Email: ocy@golfzon.com
-            </div>
-        </div>
+    <footer class="py-8 bg-white border-t text-center text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+        &copy; 2026 GOLFZON VINA. All Rights Reserved.
     </footer>
 
-    <script>
-        // Language State
-        let currentLang = 'vi';
-
-        function setLang(lang) {
-            currentLang = lang;
-            const elements = document.querySelectorAll('[data-vi]');
-            elements.forEach(el => {
-                el.innerText = el.getAttribute(`data-${lang}`);
-            });
-
-            // UI Toggle
-            document.getElementById('lang-vi').className = lang === 'vi' ? 'px-3 py-1.5 rounded-md transition-all bg-white text-navy shadow-sm' : 'px-3 py-1.5 rounded-md transition-all text-slate-500';
-            document.getElementById('lang-en').className = lang === 'en' ? 'px-3 py-1.5 rounded-md transition-all bg-white text-navy shadow-sm' : 'px-3 py-1.5 rounded-md transition-all text-slate-500';
-
-            updateChart(lang);
-        }
-
-        // Chart.js Configuration
-        let chart;
-        function initChart() {
-            const ctx = document.getElementById('mainChart').getContext('2d');
-            chart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Giá Niêm Yết', 'Giá Refurbished'],
-                    datasets: [{
-                        data: [1280, 576],
-                        backgroundColor: ['#E2E8F0', '#C5A059'],
-                        borderRadius: 8,
-                        barThickness: 40
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: '#002D58',
-                            titleFont: { family: 'Montserrat', size: 14, weight: 'bold' },
-                            bodyFont: { family: 'Montserrat', size: 14 },
-                            padding: 12
-                        }
-                    },
-                    scales: {
-                        y: { 
-                            beginAtZero: true, 
-                            grid: { color: '#F1F5F9' },
-                            ticks: { font: { weight: 'bold' } }
-                        },
-                        x: { grid: { display: false } }
-                    }
-                }
-            });
-        }
-
-        function updateChart(lang) {
-            const labels = lang === 'vi' ? ['Giá Niêm Yết', 'Giá Refurbished'] : ['Standard Price', 'Refurbished Price'];
-            chart.data.labels = labels;
-            chart.update();
-        }
-
-        // Form Submission
-        document.getElementById('leadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            this.classList.add('hidden');
-            document.getElementById('successMessage').classList.remove('hidden');
-        });
-
-        // Initialize
-        window.onload = initChart;
-    </script>
+    <!-- Link to external JS -->
+    <script src="script.js"></script>
 </body>
 </html>
